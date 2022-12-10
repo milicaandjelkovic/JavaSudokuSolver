@@ -78,7 +78,7 @@ public class TestClass extends BaseTestClass{
 
     }
 
-    // Ova test metoda treba da proveri da li je game.game niz promenjen nakon game.newGame()
+    // Metoda treba da proveri da li je game niz promenjen nakon game.newGame()
     @Test
     public void generateNewGameTest() {
         int[][] tmp = copyArr(test.generateGameArray(games));
@@ -86,7 +86,6 @@ public class TestClass extends BaseTestClass{
         Assertions.assertFalse(Arrays.deepEquals(test.generateGameArray(games), tmp));
     }
 
-    // Metoda za proveru help)n checkbox-a
     @Test
     public void helpOnCheckBoxTrueTest() {
         games.setHelp(true);
@@ -99,7 +98,7 @@ public class TestClass extends BaseTestClass{
         Assertions.assertFalse(games.isHelp(), "Help is not checked!");
     }
 
-    // Metoda koja proverava da li je selected number nakon postavljanja u zadato polje zapravo u tom polju
+    // Metoda koja proverava da li je selected number nakon postavljanja u zadato polje zaista u tom polju
     @Test
     public void selectedNumberTest() {
         int x = 3;
@@ -107,17 +106,13 @@ public class TestClass extends BaseTestClass{
         int n = 5;
         games.setSelectedNumber(n);
         games.setNumber(x, y, games.getSelectedNumber());
-        Assertions.assertEquals(games.getSelectedNumber(), games.getNumber(x, y), "Number is not right!");
+        Assertions.assertEquals(games.getSelectedNumber(), games.getNumber(x, y), "Number is not there!");
     }
 
-    // Proverava da li je broj kandidat za to polje i da li to polje u nizu check nosi vrednost true
-    // postavlja ga ako su ti uslovi ispunjeni i dokazuje da polje na koje je broj postavljen
-    // ima vrednost true u nizu check[x][y]
-    // korisceni su parametri ValueSource
+
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 3, 4, 5, 6, 7, 8, 9 })
     public void isSelectedNumberCandidateValidTrue(int n) {
-        // kreira boolean[][] check, gde vrednost true znaci da taj borj stoji na tom mestu
         games.checkGame();
         games.setSelectedNumber(n);
         for (int y = 0; y < 9; y++) {
