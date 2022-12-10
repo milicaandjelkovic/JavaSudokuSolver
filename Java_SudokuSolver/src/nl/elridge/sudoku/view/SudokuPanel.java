@@ -15,7 +15,7 @@ import nl.elridge.sudoku.model.UpdateAction;
  *
  * @author Eric Beijer
  */
-public class SudokuPanel extends JPanel implements Observer {
+public class SudokuPanel extends JPanel  implements Observer {
     // Color constant for candidates.
     private static final Color COLOR_CANDIDATE = new Color(102, 153, 255);
 
